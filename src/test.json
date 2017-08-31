@@ -1,0 +1,95 @@
+
+//https://developers.google.com/maps/documentation/distance-matrix/
+
+{
+   "destination_addresses" : [
+      "Commons Way, Bridgewater, NJ 08807, USA",
+      "Morris Turnpike, Short Hills, NJ 07078, USA",
+      "Monmouth Mall, Eatontown, NJ 07724, USA",
+      "Garden State Plaza Blvd, Paramus, NJ 07652, USA",
+      "Newport Centre Mall, Jersey City, NJ 07302, USA"
+   ],
+   "origin_addresses" : [ "75 Ninth Ave, New York, NY 10011, USA" ],
+   "rows" : [
+      {
+         "elements" : [
+            {
+               "distance" : {
+                  "text" : "68.8 km",
+                  "value" : 68781
+               },
+               "duration" : {
+                  "text" : "56 mins",
+                  "value" : 3334
+               },
+               "duration_in_traffic" : {
+                  "text" : "1 hour 1 min",
+                  "value" : 3687
+               },
+               "status" : "OK"
+            },
+            {
+               "distance" : {
+                  "text" : "34.8 km",
+                  "value" : 34806
+               },
+               "duration" : {
+                  "text" : "36 mins",
+                  "value" : 2138
+               },
+               "duration_in_traffic" : {
+                  "text" : "41 mins",
+                  "value" : 2487
+               },
+               "status" : "OK"
+            },
+            {
+               "distance" : {
+                  "text" : "86.3 km",
+                  "value" : 86322
+               },
+               "duration" : {
+                  "text" : "1 hour 6 mins",
+                  "value" : 3930
+               },
+               "duration_in_traffic" : {
+                  "text" : "1 hour 7 mins",
+                  "value" : 4044
+               },
+               "status" : "OK"
+            },
+            {
+               "distance" : {
+                  "text" : "32.3 km",
+                  "value" : 32278
+               },
+               "duration" : {
+                  "text" : "33 mins",
+                  "value" : 2009
+               },
+               "duration_in_traffic" : {
+                  "text" : "35 mins",
+                  "value" : 2082
+               },
+               "status" : "OK"
+            },
+            {
+               "distance" : {
+                  "text" : "6.9 km",
+                  "value" : 6879
+               },
+               "duration" : {
+                  "text" : "19 mins",
+                  "value" : 1113
+               },
+               "duration_in_traffic" : {
+                  "text" : "24 mins",
+                  "value" : 1444
+               },
+               "status" : "OK"
+            }
+         ]
+      }
+   ],
+   "status" : "OK"
+}

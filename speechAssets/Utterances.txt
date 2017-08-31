@@ -1,0 +1,6 @@
+TrafficIntent {Destination}
+TrafficIntent How's my commute {Destination} looking
+TrafficIntent Is there traffic on the way {Destination}
+TrafficIntent Is there traffic on the way to {Destination}
+Amazon.HelpIntent what destinations do I have stored
+Amazon.HelpIntent what can I say
