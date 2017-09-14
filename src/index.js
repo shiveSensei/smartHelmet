@@ -11,7 +11,7 @@ var handlers = {
    'LaunchRequest': function () {
        this.emit('SayHello');
    },
-   'HelloWorldIntent': function () {
+   'TrafficIntent': function () {
        this.emit('SayHello')
    },
    'SayHello': function () {
@@ -53,6 +53,4 @@ function getJSON(callback) {
            callback("ERROR");
        }
    })
-
-
 }
