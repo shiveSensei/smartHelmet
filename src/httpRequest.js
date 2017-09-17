@@ -14,20 +14,17 @@ const request = require('request');
  const apikeyMat = "AIzaSyBaPxqLFEeKbBXll9giG-GkjGuH2bwa7Gw";
  const apikeyLoc = "AIzaSyDlFTmU6RG3Kamp46oIax6noh4QE86Mxug";
 
-exports.request.post(
+exports.handler = (event, context, callback) => {
+    request.post(
     'https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyDlFTmU6RG3Kamp46oIax6noh4QE86Mxug',
     { json: { key: 'value' } },
     function (error, response, body) {
         if (!error && response.statusCode == 200) {
-            console.log('....');
-            console.log('This is your Post REQ ');
-            console.log(body);
+            console.log(body)
         }
     }
 );
- 
- 
- 
+} 
  
  
 exports.handler = (event, context, callback) => {
