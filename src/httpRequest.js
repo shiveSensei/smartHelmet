@@ -1,7 +1,7 @@
 'use strict';
 
-const alexa = require('alexa-sdk');
 const https = require('https');
+const request = require('request');
 
 /**
  * Pass the data to send as `event.data`, and the request options as
@@ -10,20 +10,58 @@ const https = require('https');
  *
  * Will succeed with the response body.
  */
- const apikey = "AIzaSyAUahgJ02DmY8Jzgw5z3nJsy6fMFxZfdTw";
+ const apikeyDir = "AIzaSyAUahgJ02DmY8Jzgw5z3nJsy6fMFxZfdTw";
+ const apikeyMat = "AIzaSyBaPxqLFEeKbBXll9giG-GkjGuH2bwa7Gw";
+ const apikeyLoc = "AIzaSyDlFTmU6RG3Kamp46oIax6noh4QE86Mxug";
+
+exports.request.post(
+    'https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyDlFTmU6RG3Kamp46oIax6noh4QE86Mxug',
+    { json: { key: 'value' } },
+    function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            console.log('....');
+            console.log('This is your Post REQ ');
+            console.log(body);
+        }
+    }
+);
+ 
+ 
+ 
+ 
+ 
 exports.handler = (event, context, callback) => {
-  const req = https.get('https://maps.googleapis.com/maps/api/directions/json?origin=75+9th+Ave+New+York,+NY&destination=MetLife+Stadium+1+MetLife+Stadium+Dr+East+Rutherford,+NJ+07073&key=AIzaSyAUahgJ02DmY8Jzgw5z3nJsy6fMFxZfdTw', (res.setEncoding('utf8')) => {
-  
+  const req = https.get('https://maps.googleapis.com/maps/api/distancematrix/json?origins=Vancouver+BC|Seattle&destinations=San+Francisco|Victoria+BC&key=AIzaSyBaPxqLFEeKbBXll9giG-GkjGuH2bwa7Gw', (res) => {
+  res.setEncoding('utf8');
   var body = '';
-  console.log('statusCode:', res.statusCode);
-  console.log('headers:', res.headers);
+  //console.log('statusCode:', res.statusCode);
+  //console.log('headers:', res.headers);
+  
   
 
   res.on('data', (d) => {
+    process.stdout.write(d);
     body += d;
   });
+  
   res.on('end', function() {
-    console.log(body);
+     
+     
+   
+      var data = JSON.parse(body);     
+      //console.log(data);
+      console.log("-----------");      
+      console.log("-----------");      
+      console.log("-----------");      
+      console.log("-----------"); 
+      
+      //console.log(data.geocoded_waypoints[0].place_id);
+      //console.log(data.routes[0].travel_mod);
+      console.log(data.rows[0].elements[0].distance.text);
+      console.log("-----------");      
+      console.log("-----------");      
+      console.log("-----------");  
+      //console.log(data.routes);
   });
 
 }).on('error', (e) => {
