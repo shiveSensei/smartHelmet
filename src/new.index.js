@@ -1,7 +1,5 @@
-'use strict';
-//var Alexa = require("alexa-sdk");
-const geolocate = require("./src/httpRequest");
- 
+// 'use strict';
+// var Alexa = require("alexa-sdk");
 
 const people = {
     "kalen": {
@@ -148,7 +146,7 @@ function getWelcomeResponse(callback) {
         "repromptText" : reprompt
     }
 
-  callback(sessionAttributes, buildSpeechletResponse(header, speechOutput, reprompt, shouldEndSession));
+  callback(sessionAttributes, buildSpeechletResponse(header, speechOutput, repormpt, shouldEndSession));
 }
 
 function handleTrafficResponse(intent, session, callback) {
@@ -164,11 +162,11 @@ function handleTrafficResponse(intent, session, callback) {
     else {
 
         //If person is found in db, build response
-        var startAddress = people.kalen.work.address;
+        var startAddress = intent.slots.Start.value;
         var destAddress = intent.slots.Destination.value;
         var directions = "";
         var speechOutput = "Your starting address is " + startAddress + ". " + "Your destination is " + destAddress;
-        var reprompt = "Do you want to hear more?";
+        var repormpt = "Do you want to hear more?";
         var header = person;
     }
 
@@ -193,7 +191,7 @@ function handleGetHelpRequest(intent, session, callback) {
     // Ensure that session.attributes has been initialized
     if (!session.attributes) {
         session.attributes = {};
-    }
+
 }
 
 function handleFinishSessionRequest(intent, session, callback) {
@@ -250,5 +248,3 @@ function buildResponse(sessionAttributes, speechletResponse) {
         response: speechletResponse
     };
 }
-
-

@@ -14,7 +14,9 @@ const request = require('request');
  const apikeyMat = "AIzaSyBaPxqLFEeKbBXll9giG-GkjGuH2bwa7Gw";
  const apikeyLoc = "AIzaSyDlFTmU6RG3Kamp46oIax6noh4QE86Mxug";
 
-exports.handler = (event, context, callback) => {
+
+//geolocate function
+exports.handler.geolocate = function  (event, context, callback) {
     request.post(
     'https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyDlFTmU6RG3Kamp46oIax6noh4QE86Mxug',
     { json: { key: 'value' } },
@@ -68,3 +70,40 @@ exports.handler = (event, context, callback) => {
     
     req.end();
 };
+
+function handleGetInfoIntent(intent, session, callback) {
+
+  var speechOutput = "Oops, something went wrong";
+
+  getJSON((data)=>{
+    if(data != "ERROR") {
+      var speechOutput = data;
+    }
+    callback(session.attributes, buildSpeechletResponseWithoutCard(speechOutput, "", false))
+  })
+
+}
+
+function url(data){
+   var url = "http://www.google.com/";
+
+   //handle concatonate data to url
+
+   return url;
+}
+
+function getJSON(callback) {
+
+   request.get(url(), function(err, res, body) {
+
+       var data = JSON.parse(body);
+
+       var travelTime = data.rows.elements.duration_in_traffic.text;
+
+       if(travelTime > 0) {
+           callback(travelTime);
+       } else {
+           callback("ERROR");
+       }
+   })
+}

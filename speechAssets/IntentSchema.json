@@ -1,7 +1,36 @@
 {
   "intents": [
-  	{
-      "name": "TrafficIntent",
+    {
+      "intent": "TrafficIntent",
+      "slots": [
+        {
+          "name": "Person",
+          "type": "AMAZON.US_FIRST_NAME"
+        },
+        {
+          "name": "Start",
+          "type": "LIST_OF_PLACES"
+        },
+        {
+          "name": "Destination",
+          "type": "LIST_OF_PLACES"
+        }
+      ]
+    },
+    {
+      "intent": "AMAZON.YesIntent"
+    },
+    {
+      "intent": "AMAZON.NoIntent"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
     }
   ]
 }

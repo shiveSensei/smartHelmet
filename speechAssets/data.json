@@ -1,0 +1,31 @@
+# Dictionary mapping names of people to their addresses.
+# Customize with your own values.
+PEOPLE_AND_PLACES = {
+    "Mark": {
+        "work": {
+            "address": "1 Hacker Way, Menlo Park, CA 94025",
+            "start": "home"
+        },
+        "home": {
+            "address": "3660 21st St, San Francisco, CA 94114",
+            "start": "work"
+        }
+    },
+    "Tim": {
+        "work": {
+            "address": "1 Infinite Loop, Cupertino, CA 95014",
+            "start": "home"
+        },
+        "home": {
+            "address": "Webster St, Palo Alto, CA ",
+            "start": "work"
+        },
+        "cafe": {
+             "address": "10591 N De Anza Blvd, Cupertino, CA 95014",
+             "start": "work"
+        }
+    }
+}
+
+# Default if skill is launched without specifying a person
+DEFAULT_PERSON = "Kalen"

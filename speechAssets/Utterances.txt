@@ -1,6 +1,16 @@
-TrafficIntent {Destination}
-TrafficIntent How's my commute {Destination} looking
-TrafficIntent Is there traffic on the way {Destination}
-TrafficIntent Is there traffic on the way to {Destination}
-Amazon.HelpIntent what destinations do I have stored
-Amazon.HelpIntent what can I say
+TrafficIntent how's traffic to {Destination}
+TrafficIntent how is traffic to {Destination}
+TrafficIntent how's the traffic to {Destination}
+TrafficIntent how is the traffic to {Destination}
+TrafficIntent how's traffic to {Destination} for {Person}
+TrafficIntent how is traffic to {Destination} for {Person}
+TrafficIntent how's the traffic to {Destination} for {Person}
+TrafficIntent how is the traffic to {Destination} for {Person}
+TrafficIntent how's traffic to {Destination} from {Start}
+TrafficIntent how is traffic to {Destination} from {Start}
+TrafficIntent how's the traffic to {Destination} from {Start}
+TrafficIntent how is the traffic to {Destination} from {Start}
+TrafficIntent how's traffic to {Destination} from {Start} for {Person}
+TrafficIntent how is traffic to {Destination} from {Start} for {Person}
+TrafficIntent how's the traffic to {Destination} from {Start} for {Person}
+TrafficIntent how is the traffic to {Destination} from {Start} for {Person}
