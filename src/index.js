@@ -1,6 +1,6 @@
 'use strict';
 //var Alexa = require("alexa-sdk");
-const requestsAPI = require("./src/httpRequest");
+//const requestsAPI = require("./src/httpRequest");
  
 
 const people = {
@@ -146,6 +146,7 @@ function getWelcomeResponse(callback) {
 
 function handleTrafficResponse(intent, session, callback) {
     var person = intent.slots.Person.value.toLowerCase();
+    var dest = intent.slots.Destination.value.toLowerCase();
 
     if(!people[person]){
 
@@ -157,10 +158,10 @@ function handleTrafficResponse(intent, session, callback) {
     else {
 
         //If person is found in db, build response
-        var startAddress = people.kalen.work.address;
-        var destAddress = intent.slots.Destination.value;
+        var startAddress = people[person].home.address;
+        var destAddress = people[person].school.address;
         var directions = "";
-        var speechOutput = "Your starting address is " + startAddress + ". " + "Your destination is " + destAddress;
+        var speechOutput = "Your starting address is " + startAddress + ". " + "Your destination is " + destAddress + "";
         var reprompt = "Do you want to hear more?";
         var header = person;
     }
@@ -168,6 +169,19 @@ function handleTrafficResponse(intent, session, callback) {
     var shouldEndSession = false;
 
     callback(session.atrributes, buildSpeechletResponse(header, speechOutput, repromptText, shouldEndSession))
+}
+
+function handleGetDirections(intent, session, callback) {
+
+  var speechOutput = "Oops, something went wrong";
+
+  getJSON((data)=>{
+    if(data != "ERROR") {
+      var speechOutput = data;
+    }
+    callback(session.attributes, buildSpeechletResponseWithoutCard(speechOutput, "", false))
+  })
+
 }
 
 function handleYesResponse(intent, session, callback) {

@@ -71,7 +71,7 @@ exports.handler = (event, context, callback) => {
     req.end();
 };
 
-function handleGetInfoIntent(intent, session, callback) {
+function handleGetDirections(intent, session, callback) {
 
   var speechOutput = "Oops, something went wrong";
 
