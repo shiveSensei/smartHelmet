@@ -1,6 +1,6 @@
 'use strict';
 //var Alexa = require("alexa-sdk");
-const geolocate = require("./src/httpRequest");
+const requestsAPI = require("./src/httpRequest");
  
 
 const people = {
@@ -74,24 +74,19 @@ exports.handler = function (event, context) {
     }
 };
 
-/**
- * Called when the session starts.
- */
-function onSessionStarted(sessionStartedRequest, session) {
+
+ //Called when the session starts.
+ function onSessionStarted(sessionStartedRequest, session) {
     // add any session init logic here
 }
 
-/**
- * Called when the user invokes the skill without specifying what they want.
- */
+//Called when the user invokes the skill without specifying what they want.
 function onLaunch(launchRequest, session, callback) {
     getWelcomeResponse(callback);
 
 }
 
-/**
- * Called when the user specifies an intent for this skill.
- */
+//Called when the user specifies an intent for this skill.
 function onIntent(intentRequest, session, callback) {
 
     var intent = intentRequest.intent
@@ -126,10 +121,8 @@ function onIntent(intentRequest, session, callback) {
 
 }
 
-/**
- * Called when the user ends the session.
- * Is not called when the skill returns shouldEndSession=true.
- */
+//Called when the user ends the session.
+//Is not called when the skill returns shouldEndSession=true.
 function onSessionEnded(sessionEndedRequest, session) {
 
 }
