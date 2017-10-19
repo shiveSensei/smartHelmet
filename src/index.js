@@ -89,8 +89,8 @@ function onLaunch(launchRequest, session, callback) {
 //Called when the user specifies an intent for this skill.
 function onIntent(intentRequest, session, callback) {
 
-    var intent = intentRequest.intent
-    var intentName = intentRequest.intent.name;
+    const intent = intentRequest.intent
+    const intentName = intentRequest.intent.name;
 
     // dispatch custom intents to handlers here
     if(intentName == "TrafficIntent") {
@@ -145,35 +145,35 @@ function getWelcomeResponse(callback) {
 }
 
 function handleTrafficResponse(intent, session, callback) {
-    var person = intent.slots.Person.value.toLowerCase();
-    var dest = intent.slots.Destination.value.toLowerCase();
+    const person = intent.slots.Person.value.toLowerCase();
+    const dest = intent.slots.Destination.value.toLowerCase();
 
     if(!people[person]){
 
         //If person is not found in db, build prompt for alexa to report and suggest trying again
-        var speechOutput = "Silly rabbit, tricks are for kids. J K, that person is not in the database. Please try again";
-        var repromptText = "Try asking about another person";
-        var header = "No bueno";
+        const speechOutput = "Silly rabbit, tricks are for kids. J K, that person is not in the database. Please try again";
+        const repromptText = "Try asking about another person";
+        const header = "No bueno";
     }
     else {
 
         //If person is found in db, build response
-        var startAddress = people[person].home.address;
-        var destAddress = people[person].school.address;
-        var directions = "";
-        var speechOutput = "Your starting address is " + startAddress + ". " + "Your destination is " + destAddress + "";
-        var reprompt = "Do you want to hear more?";
-        var header = person;
+        const startAddress = people[person].home.address;
+        const destAddress = people[person].school.address;
+        const directions = "";
+        const speechOutput = "Your starting address is " + startAddress + ". " + "Your destination is " + destAddress + "";
+        const reprompt = "Do you want to hear more?";
+        const header = person;
     }
 
-    var shouldEndSession = false;
+    const shouldEndSession = false;
 
     callback(session.atrributes, buildSpeechletResponse(header, speechOutput, repromptText, shouldEndSession))
 }
 
 function handleGetDirections(intent, session, callback) {
 
-  var speechOutput = "Oops, something went wrong";
+  const speechOutput = "Oops, something went wrong";
 
   getJSON((data)=>{
     if(data != "ERROR") {
